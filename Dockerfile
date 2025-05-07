@@ -96,7 +96,8 @@ RUN git clone https://huggingface.co/google-bert/bert-base-uncased $COMFYUI_PATH
 RUN git clone https://huggingface.co/microsoft/Florence-2-base $COMFYUI_PATH/models/LLM/Florence-2-base
 
 # 复制本地自定义节点和模型
-ADD src/start.sh src/rp_handler.py /root/
+COPY src/start.sh /root/
+COPY src/rp_handler.py /root/
 
 RUN chmod +x /root/start.sh
 
