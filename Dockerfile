@@ -10,12 +10,17 @@ ENV COMFYUI_PATH=/root/comfy/ComfyUI
 
 ARG HF_TOKEN
 
+RUN apt-get install -y curl
+
+RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash
+
 RUN apt-get update
 
 RUN apt-get install -y \
-        git \
-        ffmpeg \
-        wget
+    git \
+    ffmpeg \
+    wget \
+    git-lfs
 
 # Clean up to reduce image size
 RUN apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/*
@@ -85,7 +90,6 @@ RUN huggingface-cli download briaai/RMBG-1.4 model.pth --local-dir $COMFYUI_PATH
 RUN mv $COMFYUI_PATH/models/rembg/model.pth $COMFYUI_PATH/models/rembg/RMBG-1.4.pth
 
 # https://github.com/storyicon/comfyui_segment_anything
-RUN wget -q -O $COMFYUI_PATH/models/sams/sam_vit_b_01ec64.pth https://dl.fbaipublicfiles.com/segment_anything/sam_vit_b_01ec64.pth
 RUN wget -q -O $COMFYUI_PATH/models/sams/sam_vit_b_01ec64.pth https://dl.fbaipublicfiles.com/segment_anything/sam_vit_b_01ec64.pth
 RUN huggingface-cli download ShilongLiu/GroundingDINO groundingdino_swinb_cogcoor.pth --local-dir $COMFYUI_PATH/models/grounding-dino/ --local-dir-use-symlinks False
 RUN huggingface-cli download ShilongLiu/GroundingDINO GroundingDINO_SwinB.cfg.py --local-dir $COMFYUI_PATH/models/grounding-dino/ --local-dir-use-symlinks False
