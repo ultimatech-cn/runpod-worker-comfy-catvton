@@ -8,6 +8,8 @@ ENV TZ="Etc/UTC"
 
 ENV COMFYUI_PATH=/root/comfy/ComfyUI
 
+ARG HF_TOKEN
+
 RUN apt-get update
 
 RUN apt-get install -y \
@@ -46,6 +48,7 @@ RUN git clone https://github.com/cubiq/ComfyUI_essentials.git $COMFYUI_PATH/cust
     pip install -r $COMFYUI_PATH/custom_nodes/ComfyUI_essentials/requirements.txt
 
 # Log in to Hugging Face CLI using the build argument token
+# Only run login if HF_TOKEN is provided
 RUN huggingface-cli login --token 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
 
 RUN mkdir -p $COMFYUI_PATH/models/LLM \
