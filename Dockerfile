@@ -62,7 +62,6 @@ RUN mkdir -p $COMFYUI_PATH/models/LLM \
              $COMFYUI_PATH/models/rembg \
              $COMFYUI_PATH/models/style_models \
              $COMFYUI_PATH/models/vae \
-#             $COMFYUI_PATH/models/bert-base-uncased \
              $COMFYUI_PATH/models/clip_vision \
              $COMFYUI_PATH/models/loras \
              $COMFYUI_PATH/models/sams \
@@ -106,5 +105,5 @@ COPY src/rp_handler.py /root/
 RUN chmod +x /root/start.sh
 
 # 暴露端口并设置启动命令
-EXPOSE 8188
+#EXPOSE 8188
 CMD ["/root/start.sh"]
