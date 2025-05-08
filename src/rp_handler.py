@@ -230,13 +230,14 @@ def process_output_images(outputs, job_id):
     """
 
     # The path where ComfyUI stores the generated images
-    COMFY_OUTPUT_PATH = os.environ.get("COMFY_OUTPUT_PATH", "/root/comfy/ComfyUI/output")
+    COMFY_OUTPUT_PATH = os.environ.get("COMFY_OUTPUT_PATH", "/root/comfy/ComfyUI/temp")
 
     output_data = []
 
     for node_id, node_output in outputs.items():
         if "images" in node_output:
             for image in node_output["images"]:
+                print(f"image: {image}")
                 filename = image.get("filename")
                 subfolder = image.get("subfolder", "")
                 output_images = os.path.join(subfolder, image["filename"])
