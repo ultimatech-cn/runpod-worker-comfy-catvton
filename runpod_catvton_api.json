@@ -1,7 +1,7 @@
 {
   "1": {
     "inputs": {
-      "image": "a8aebf4d17c94981a7f7cde0ffa2525c.webp"
+      "image": "a.png"
     },
     "class_type": "LoadImage",
     "_meta": {
@@ -46,21 +46,9 @@
       "title": "Create Context Window"
     }
   },
-  "4": {
-    "inputs": {
-      "images": [
-        "3",
-        0
-      ]
-    },
-    "class_type": "PreviewImage",
-    "_meta": {
-      "title": "Preview Image"
-    }
-  },
   "5": {
     "inputs": {
-      "image": "out-0 (4) (1).webp"
+      "image": "b.png"
     },
     "class_type": "LoadImage",
     "_meta": {
@@ -87,18 +75,6 @@
       "title": "Create Context Window"
     }
   },
-  "8": {
-    "inputs": {
-      "images": [
-        "7",
-        0
-      ]
-    },
-    "class_type": "PreviewImage",
-    "_meta": {
-      "title": "Preview Image"
-    }
-  },
   "9": {
     "inputs": {
       "patch_mode": "auto",
@@ -121,18 +97,6 @@
     "class_type": "ConcatContextWindow",
     "_meta": {
       "title": "Concatenate Context Window"
-    }
-  },
-  "10": {
-    "inputs": {
-      "images": [
-        "9",
-        0
-      ]
-    },
-    "class_type": "PreviewImage",
-    "_meta": {
-      "title": "Preview Image"
     }
   },
   "11": {
@@ -314,18 +278,6 @@
       "title": "Image Crop"
     }
   },
-  "22": {
-    "inputs": {
-      "images": [
-        "20",
-        0
-      ]
-    },
-    "class_type": "PreviewImage",
-    "_meta": {
-      "title": "Preview Image"
-    }
-  },
   "23": {
     "inputs": {
       "upscale_method": "lanczos",
@@ -341,18 +293,6 @@
     "class_type": "ImageScaleBy",
     "_meta": {
       "title": "Upscale Image By"
-    }
-  },
-  "24": {
-    "inputs": {
-      "images": [
-        "21",
-        0
-      ]
-    },
-    "class_type": "PreviewImage",
-    "_meta": {
-      "title": "Preview Image"
     }
   },
   "25": {
@@ -384,18 +324,6 @@
       "title": "ImageCompositeMasked"
     }
   },
-  "26": {
-    "inputs": {
-      "images": [
-        "25",
-        0
-      ]
-    },
-    "class_type": "PreviewImage",
-    "_meta": {
-      "title": "Preview Image"
-    }
-  },
   "27": {
     "inputs": {
       "unet_name": "flux1-fill-dev.safetensors",
@@ -417,7 +345,7 @@
   },
   "29": {
     "inputs": {
-      "noise_seed": 960125208356181
+      "noise_seed": 1121474468511069
     },
     "class_type": "RandomNoise",
     "_meta": {
@@ -427,7 +355,7 @@
   "30": {
     "inputs": {
       "lora_name": "catvton-flux-lora-beta-rank128.safetensors",
-      "strength_model": 1,
+      "strength_model": 1.0000000000000002,
       "model": [
         "27",
         0
@@ -444,7 +372,7 @@
       "downsampling_function": "area",
       "mode": "center crop (square)",
       "weight": 1,
-      "autocrop_margin": 0.1,
+      "autocrop_margin": 0.10000000000000002,
       "conditioning": [
         "13",
         0
@@ -495,7 +423,7 @@
       "num_beams": 3,
       "do_sample": true,
       "output_mask_select": "",
-      "seed": 32558817251476,
+      "seed": 88544568613093,
       "image": [
         "5",
         0
@@ -521,18 +449,6 @@
       "title": "DownloadAndLoadFlorence2Model"
     }
   },
-  "38": {
-    "inputs": {
-      "images": [
-        "35",
-        0
-      ]
-    },
-    "class_type": "PreviewImage",
-    "_meta": {
-      "title": "Preview Image"
-    }
-  },
   "39": {
     "inputs": {
       "expand": 3,
@@ -547,16 +463,17 @@
       "title": "GrowMask"
     }
   },
-  "40": {
+  "42": {
     "inputs": {
-      "mask": [
-        "39",
+      "filename_prefix": "ComfyUI",
+      "images": [
+        "25",
         0
       ]
     },
-    "class_type": "MaskPreview+",
+    "class_type": "SaveImage",
     "_meta": {
-      "title": "🔧 Mask Preview"
+      "title": "Save Image"
     }
   }
 }
